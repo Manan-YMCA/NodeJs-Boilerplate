@@ -47,7 +47,10 @@ Url.findOne({key:req.params.userkey},function (err, url) {
 	/*console.log('->'+url);
 	console.log(url.url);
 	res.redirect(url.url);*/
-	res.redirect(url[0].url);
+	if(url)
+	res.redirect(url.url);
+	else
+	res.redirect("http://localhost:5000/me")
 });
 
 })
